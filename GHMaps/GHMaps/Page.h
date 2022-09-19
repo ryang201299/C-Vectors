@@ -9,5 +9,10 @@ public:
 	Page(string newPageName, string newFollowers) {
 		pageName = newPageName;
 		followers = newFollowers;
+		cout << "\nPage " << pageName << " created." << endl;
+	}
+
+	~Page() {
+		cout << "Page " << pageName << " destroyed." << endl;
 	}
 };

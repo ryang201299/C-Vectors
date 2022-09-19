@@ -4,12 +4,14 @@
 using namespace std;
 
 int main() {
-	Page* F1 = new Page("F1", "5M");
-	Page* Golf = new Page("Golf", "2.5M");
-	Page* Modelling = new Page("Modelling", "10M");
+	// shared pointers used over unique pointers, as storing values in a vector, requires making copies, and copies cannot be made of a unique pointer.
 
-	UserAccount* RyanG = new UserAccount("Ryan Gorman");
-	UserAccount* AlexB = new UserAccount("Alex Bond");
+	shared_ptr<Page> F1 = make_unique<Page>("F1", "5M");
+	shared_ptr<Page> Golf = make_unique<Page>("Golf", "2.gM");
+	shared_ptr<Page> Modelling = make_unique<Page>("Modelling", "10M");
+
+	shared_ptr<UserAccount> RyanG = make_unique<UserAccount>("Ryan Gorman");
+	shared_ptr<UserAccount> AlexB = make_unique<UserAccount>("Alex Bond");
 
 	RyanG->followAccount(Golf);
 	RyanG->followAccount(F1);
@@ -17,4 +19,6 @@ int main() {
 	AlexB->followAccount(Modelling);
 
 	RyanG->followedAccounts();
+
+	AlexB->followedAccounts();
 }
