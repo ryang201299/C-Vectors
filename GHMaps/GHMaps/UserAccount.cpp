@@ -1,16 +1,24 @@
 #include <iostream>
+#include <algorithm>
+
 #include "UserAccount.h"
 
 using namespace std;
 
 void UserAccount::followAccount(Page* page) {
-	// add new page to user's followed pages
+	likedPages.push_back(page);
 }
 
 void UserAccount::unfollowAccount(Page* page) {
-	// remove page from user's followed pages
+	likedPages.erase(std::remove(likedPages.begin(), likedPages.end(), page), likedPages.end());
 }
 
 void UserAccount::followedAccounts() {
-	// output all users followed pages
+	cout << userName << " followed accounts: ";
+	for (int i = 0; i < likedPages.size(); i++) {
+		if (i != 0) {
+			cout << ", ";
+		}
+		cout << likedPages[i]->pageName;
+	}
 }

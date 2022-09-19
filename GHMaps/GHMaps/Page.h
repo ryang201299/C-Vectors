@@ -5,8 +5,8 @@ using namespace std;
 class Page {
 public:
 	string pageName;
-	double followers;
-	Page(string newPageName, double newFollowers) {
+	string followers;
+	Page(string newPageName, string newFollowers) {
 		pageName = newPageName;
 		followers = newFollowers;
 	}

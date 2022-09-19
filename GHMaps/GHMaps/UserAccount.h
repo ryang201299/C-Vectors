@@ -8,7 +8,7 @@ using namespace std;
 class UserAccount {
 public:
 	string userName;
-	vector<Page> likedPages;
+	vector<Page*> likedPages;
 
 	UserAccount(string newName) {
 		userName = newName;
